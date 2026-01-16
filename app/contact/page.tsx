@@ -1,5 +1,4 @@
 // app/contact/page.tsx
-"use client";
 
 import { personalInfo } from "@/lib/data";
 
@@ -7,39 +6,42 @@ export default function ContactPage() {
   return (
     <main className="min-h-screen bg-[#0a0a0a] text-white">
       {/* Hero Section */}
-      <section className="relative py-32 overflow-hidden">
+      <section className="relative py-20 md:py-32 overflow-hidden pt-24">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-purple-600/10 to-pink-600/10" />
         <div
           className="absolute inset-0"
           style={{
             backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0)`,
-            backgroundSize: "40px 40px",
+            backgroundSize: "30px 30px",
           }}
         />
 
         {/* Animated orbs */}
-        <div className="absolute top-20 left-20 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-20 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-700" />
+        <div className="absolute top-10 left-10 md:top-20 md:left-20 w-48 h-48 md:w-64 md:h-64 bg-blue-500/20 rounded-full blur-3xl animate-pulse" />
+        <div
+          className="absolute bottom-10 right-10 md:bottom-20 md:right-20 w-56 h-56 md:w-80 md:h-80 bg-purple-500/20 rounded-full blur-3xl animate-pulse"
+          style={{ animationDelay: "700ms" }}
+        />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-block mb-4">
-              <span className="text-blue-400 font-mono text-sm">
+            <div className="inline-block mb-3 md:mb-4">
+              <span className="text-blue-400 font-mono text-xs md:text-sm">
                 &lt;contact&gt;
               </span>
             </div>
 
-            <h1 className="text-6xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 px-4">
               Let's Connect
             </h1>
 
-            <p className="text-xl text-gray-400 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-base md:text-xl text-gray-400 leading-relaxed max-w-2xl mx-auto px-4">
               Whether you have a project in mind, want to collaborate, or just
               want to say hi, I'd love to hear from you.
             </p>
 
-            <div className="inline-block mt-6">
-              <span className="text-blue-400 font-mono text-sm">
+            <div className="inline-block mt-4 md:mt-6">
+              <span className="text-blue-400 font-mono text-xs md:text-sm">
                 &lt;/contact&gt;
               </span>
             </div>
@@ -48,22 +50,22 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Cards */}
-      <section className="py-20 relative">
+      <section className="py-12 md:py-20 relative">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             {/* Primary Contact Methods */}
-            <div className="grid md:grid-cols-2 gap-6 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-8 md:mb-12">
               {/* Email Card */}
               <a
                 href={`mailto:${personalInfo.email}`}
-                className="group relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-blue-500/50 transition-all hover:scale-[1.02] overflow-hidden"
+                className="group relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm rounded-xl md:rounded-2xl p-6 md:p-8 border border-white/10 hover:border-blue-500/50 transition-all hover:scale-[1.02] overflow-hidden"
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl group-hover:bg-blue-500/20 transition-all" />
+                <div className="absolute top-0 right-0 w-24 h-24 md:w-32 md:h-32 bg-blue-500/10 rounded-full blur-2xl group-hover:bg-blue-500/20 transition-all" />
 
                 <div className="relative">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform">
                     <svg
-                      className="w-8 h-8 text-white"
+                      className="w-6 h-6 md:w-8 md:h-8 text-white"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -77,13 +79,13 @@ export default function ContactPage() {
                     </svg>
                   </div>
 
-                  <h3 className="text-2xl font-bold mb-2 group-hover:text-blue-400 transition-colors">
+                  <h3 className="text-xl md:text-2xl font-bold mb-2 group-hover:text-blue-400 transition-colors">
                     Email Me
                   </h3>
-                  <p className="text-gray-400 text-sm mb-4">
+                  <p className="text-gray-400 text-xs md:text-sm mb-3 md:mb-4">
                     Drop me a line anytime
                   </p>
-                  <p className="text-blue-400 font-mono break-all group-hover:text-blue-300 transition-colors">
+                  <p className="text-blue-400 font-mono text-sm md:text-base break-all group-hover:text-blue-300 transition-colors">
                     {personalInfo.email}
                   </p>
                 </div>
@@ -92,14 +94,14 @@ export default function ContactPage() {
               {/* Phone Card */}
               <a
                 href={`tel:${personalInfo.phone}`}
-                className="group relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-purple-500/50 transition-all hover:scale-[1.02] overflow-hidden"
+                className="group relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm rounded-xl md:rounded-2xl p-6 md:p-8 border border-white/10 hover:border-purple-500/50 transition-all hover:scale-[1.02] overflow-hidden"
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl group-hover:bg-purple-500/20 transition-all" />
+                <div className="absolute top-0 right-0 w-24 h-24 md:w-32 md:h-32 bg-purple-500/10 rounded-full blur-2xl group-hover:bg-purple-500/20 transition-all" />
 
                 <div className="relative">
-                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform">
                     <svg
-                      className="w-8 h-8 text-white"
+                      className="w-6 h-6 md:w-8 md:h-8 text-white"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -113,13 +115,13 @@ export default function ContactPage() {
                     </svg>
                   </div>
 
-                  <h3 className="text-2xl font-bold mb-2 group-hover:text-purple-400 transition-colors">
+                  <h3 className="text-xl md:text-2xl font-bold mb-2 group-hover:text-purple-400 transition-colors">
                     Call Me
                   </h3>
-                  <p className="text-gray-400 text-sm mb-4">
+                  <p className="text-gray-400 text-xs md:text-sm mb-3 md:mb-4">
                     Let's have a chat
                   </p>
-                  <p className="text-purple-400 font-mono group-hover:text-purple-300 transition-colors">
+                  <p className="text-purple-400 font-mono text-sm md:text-base group-hover:text-purple-300 transition-colors">
                     {personalInfo.phone}
                   </p>
                 </div>
@@ -127,20 +129,20 @@ export default function ContactPage() {
             </div>
 
             {/* Social Links */}
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               {/* LinkedIn */}
               <a
                 href={personalInfo.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-blue-500/50 transition-all hover:scale-[1.02] overflow-hidden"
+                className="group relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm rounded-xl md:rounded-2xl p-5 md:p-8 border border-white/10 hover:border-blue-500/50 transition-all hover:scale-[1.02] overflow-hidden"
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl group-hover:bg-blue-500/20 transition-all" />
+                <div className="absolute top-0 right-0 w-24 h-24 md:w-32 md:h-32 bg-blue-500/10 rounded-full blur-2xl group-hover:bg-blue-500/20 transition-all" />
 
-                <div className="relative flex items-center gap-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                <div className="relative flex items-center gap-4 md:gap-6">
+                  <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl md:rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                     <svg
-                      className="w-8 h-8 text-white"
+                      className="w-6 h-6 md:w-8 md:h-8 text-white"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
@@ -148,17 +150,17 @@ export default function ContactPage() {
                     </svg>
                   </div>
 
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold mb-1 group-hover:text-blue-400 transition-colors">
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-lg md:text-xl font-bold mb-1 group-hover:text-blue-400 transition-colors">
                       LinkedIn
                     </h3>
-                    <p className="text-gray-400 text-sm mb-2">
+                    <p className="text-gray-400 text-xs md:text-sm mb-1 md:mb-2">
                       Let's connect professionally
                     </p>
-                    <span className="text-blue-400 text-sm font-mono group-hover:text-blue-300 transition-colors flex items-center gap-2">
+                    <span className="text-blue-400 text-xs md:text-sm font-mono group-hover:text-blue-300 transition-colors flex items-center gap-2">
                       /in/joshanpradhan
                       <svg
-                        className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                        className="w-3 h-3 md:w-4 md:h-4 group-hover:translate-x-1 transition-transform"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -180,14 +182,14 @@ export default function ContactPage() {
                 href={personalInfo.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-purple-500/50 transition-all hover:scale-[1.02] overflow-hidden"
+                className="group relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm rounded-xl md:rounded-2xl p-5 md:p-8 border border-white/10 hover:border-purple-500/50 transition-all hover:scale-[1.02] overflow-hidden"
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl group-hover:bg-purple-500/20 transition-all" />
+                <div className="absolute top-0 right-0 w-24 h-24 md:w-32 md:h-32 bg-purple-500/10 rounded-full blur-2xl group-hover:bg-purple-500/20 transition-all" />
 
-                <div className="relative flex items-center gap-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                <div className="relative flex items-center gap-4 md:gap-6">
+                  <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl md:rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                     <svg
-                      className="w-8 h-8 text-white"
+                      className="w-6 h-6 md:w-8 md:h-8 text-white"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
@@ -195,17 +197,17 @@ export default function ContactPage() {
                     </svg>
                   </div>
 
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold mb-1 group-hover:text-purple-400 transition-colors">
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-lg md:text-xl font-bold mb-1 group-hover:text-purple-400 transition-colors">
                       GitHub
                     </h3>
-                    <p className="text-gray-400 text-sm mb-2">
+                    <p className="text-gray-400 text-xs md:text-sm mb-1 md:mb-2">
                       Check out my code
                     </p>
-                    <span className="text-purple-400 text-sm font-mono group-hover:text-purple-300 transition-colors flex items-center gap-2">
+                    <span className="text-purple-400 text-xs md:text-sm font-mono group-hover:text-purple-300 transition-colors flex items-center gap-2">
                       /joshanpradhan
                       <svg
-                        className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                        className="w-3 h-3 md:w-4 md:h-4 group-hover:translate-x-1 transition-transform"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -224,13 +226,13 @@ export default function ContactPage() {
             </div>
 
             {/* Location & Availability */}
-            <div className="mt-12 relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm rounded-2xl p-10 border border-white/10 text-center overflow-hidden">
+            <div className="mt-8 md:mt-12 relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm rounded-xl md:rounded-2xl p-6 md:p-10 border border-white/10 text-center overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-pink-500/5" />
 
               <div className="relative">
-                <div className="inline-flex items-center justify-center bg-gradient-to-r from-blue-500/10 to-purple-500/10 px-6 py-3 rounded-lg mb-6 border border-blue-500/20">
+                <div className="inline-flex items-center justify-center bg-gradient-to-r from-blue-500/10 to-purple-500/10 px-4 md:px-6 py-2 md:py-3 rounded-lg mb-4 md:mb-6 border border-blue-500/20">
                   <svg
-                    className="w-5 h-5 text-blue-400 mr-3"
+                    className="w-4 h-4 md:w-5 md:h-5 text-blue-400 mr-2 md:mr-3"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -248,25 +250,25 @@ export default function ContactPage() {
                       d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                     />
                   </svg>
-                  <span className="text-white font-semibold">
+                  <span className="text-white font-semibold text-sm md:text-base">
                     {personalInfo.location}
                   </span>
                 </div>
 
-                <p className="text-gray-400 mb-8 text-lg max-w-2xl mx-auto">
+                <p className="text-gray-400 mb-6 md:mb-8 text-sm md:text-lg max-w-2xl mx-auto px-4">
                   Currently working remotely and open to both local and
                   international opportunities. Let's discuss how we can work
                   together!
                 </p>
 
-                <div className="flex gap-4 justify-center flex-wrap">
+                <div className="flex gap-3 md:gap-4 justify-center flex-wrap">
                   <a
                     href={`mailto:${personalInfo.email}?subject=Let's Work Together`}
-                    className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg hover:scale-105 transition-all hover:shadow-2xl hover:shadow-blue-500/50 font-semibold flex items-center gap-2"
+                    className="group px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg hover:scale-105 transition-all hover:shadow-2xl hover:shadow-blue-500/50 font-semibold flex items-center gap-2 text-sm md:text-base"
                   >
                     Send Email
                     <svg
-                      className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                      className="w-3 h-3 md:w-4 md:h-4 group-hover:translate-x-1 transition-transform"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -284,9 +286,9 @@ export default function ContactPage() {
                     href={personalInfo.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-8 py-4 border-2 border-blue-500/50 rounded-lg hover:bg-blue-500/10 hover:border-blue-400 transition-all hover:scale-105 backdrop-blur-sm font-semibold"
+                    className="px-6 py-3 md:px-8 md:py-4 border-2 border-blue-500/50 rounded-lg hover:bg-blue-500/10 hover:border-blue-400 transition-all hover:scale-105 backdrop-blur-sm font-semibold text-sm md:text-base"
                   >
-                    Connect on LinkedIn
+                    LinkedIn
                   </a>
                 </div>
               </div>
@@ -296,10 +298,10 @@ export default function ContactPage() {
       </section>
 
       {/* Quick Response Note */}
-      <section className="pb-20">
+      <section className="pb-12 md:pb-20">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center">
-            <p className="text-gray-500 font-mono text-sm">
+            <p className="text-gray-500 font-mono text-xs md:text-sm">
               // I typically respond within 24-48 hours
             </p>
           </div>

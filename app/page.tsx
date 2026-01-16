@@ -1,5 +1,4 @@
 // app/page.tsx
-"use client";
 
 import Link from "next/link";
 import { personalInfo, skills, experience } from "@/lib/data";
@@ -8,37 +7,40 @@ export default function Home() {
   return (
     <main className="bg-[#0a0a0a] text-white">
       {/* Hero Section with Gradient and Particles Effect */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 px-4">
         {/* Animated Background Grid */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-purple-600/20 to-pink-600/20">
           <div
-            className="absolute inset-0"
+            className="absolute inset-0 opacity-20"
             style={{
               backgroundImage: `linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
                             linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)`,
-              backgroundSize: "50px 50px",
+              backgroundSize: "30px 30px",
             }}
           />
         </div>
 
-        {/* Glowing Orbs */}
-        <div className="absolute top-20 left-20 w-72 h-72 bg-blue-500/30 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/30 rounded-full blur-3xl animate-pulse delay-700" />
+        {/* Glowing Orbs - Hidden on small mobile */}
+        <div className="absolute top-20 left-10 md:left-20 w-48 h-48 md:w-72 md:h-72 bg-blue-500/30 rounded-full blur-3xl animate-pulse" />
+        <div
+          className="absolute bottom-20 right-10 md:right-20 w-64 h-64 md:w-96 md:h-96 bg-purple-500/30 rounded-full blur-3xl"
+          style={{ animationDelay: "700ms" }}
+        />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-5xl mx-auto text-center">
             {/* Typing Effect Header */}
-            <div className="mb-6 inline-block">
-              <span className="text-blue-400 font-mono text-sm">
+            <div className="mb-4 md:mb-6 inline-block">
+              <span className="text-blue-400 font-mono text-xs md:text-sm">
                 &lt;developer&gt;
               </span>
             </div>
 
-            <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 animate-gradient">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 animate-gradient px-2">
               {personalInfo.name}
             </h1>
 
-            <div className="mb-8 font-mono text-xl md:text-2xl text-gray-300">
+            <div className="mb-6 md:mb-8 font-mono text-base sm:text-lg md:text-2xl text-gray-300 px-2">
               <span className="text-green-400">const</span>{" "}
               <span className="text-blue-300">role</span>{" "}
               <span className="text-pink-400">=</span>{" "}
@@ -46,15 +48,15 @@ export default function Home() {
               <span className="text-gray-500">;</span>
             </div>
 
-            <p className="text-lg md:text-xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-gray-400 mb-8 md:mb-12 max-w-3xl mx-auto leading-relaxed px-4">
               {personalInfo.bio}
             </p>
 
             {/* CTA Buttons with Glow Effect */}
-            <div className="flex gap-4 justify-center flex-wrap">
+            <div className="flex gap-3 md:gap-4 justify-center flex-wrap px-4">
               <Link
                 href="/projects"
-                className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg overflow-hidden transition-all hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/50"
+                className="group relative px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg overflow-hidden transition-all hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/50 text-sm md:text-base"
               >
                 <span className="relative z-10 font-semibold flex items-center gap-2">
                   View Projects
@@ -69,30 +71,30 @@ export default function Home() {
                 href={personalInfo.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-4 border-2 border-blue-500/50 rounded-lg hover:bg-blue-500/10 hover:border-blue-400 transition-all hover:scale-105 backdrop-blur-sm font-semibold"
+                className="px-6 py-3 md:px-8 md:py-4 border-2 border-blue-500/50 rounded-lg hover:bg-blue-500/10 hover:border-blue-400 transition-all hover:scale-105 backdrop-blur-sm font-semibold text-sm md:text-base"
               >
-                GitHub Profile
+                GitHub
               </a>
 
               <Link
                 href="/contact"
-                className="px-8 py-4 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 transition-all hover:scale-105 backdrop-blur-sm font-semibold"
+                className="px-6 py-3 md:px-8 md:py-4 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 transition-all hover:scale-105 backdrop-blur-sm font-semibold text-sm md:text-base"
               >
-                Let's Connect
+                Contact
               </Link>
             </div>
 
             {/* Close Tag */}
-            <div className="mt-12 inline-block">
-              <span className="text-blue-400 font-mono text-sm">
+            <div className="mt-8 md:mt-12 inline-block">
+              <span className="text-blue-400 font-mono text-xs md:text-sm">
                 &lt;/developer&gt;
               </span>
             </div>
           </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        {/* Scroll Indicator - Hidden on mobile */}
+        <div className="hidden md:block absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
           <div className="w-6 h-10 border-2 border-blue-400/50 rounded-full flex justify-center p-2">
             <div className="w-1 h-3 bg-blue-400 rounded-full animate-pulse" />
           </div>
@@ -100,49 +102,57 @@ export default function Home() {
       </section>
 
       {/* Terminal-style Stats */}
-      <section className="py-20 border-y border-white/10 bg-black/40 backdrop-blur-sm">
+      <section className="py-12 md:py-20 border-y border-white/10 bg-black/40 backdrop-blur-sm">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto bg-[#1e1e1e] rounded-lg border border-white/10 overflow-hidden shadow-2xl">
             {/* Terminal Header */}
-            <div className="bg-[#323233] px-4 py-2 flex items-center gap-2 border-b border-white/10">
-              <div className="flex gap-2">
-                <div className="w-3 h-3 rounded-full bg-red-500" />
-                <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                <div className="w-3 h-3 rounded-full bg-green-500" />
+            <div className="bg-[#323233] px-3 md:px-4 py-2 flex items-center gap-2 border-b border-white/10">
+              <div className="flex gap-1.5 md:gap-2">
+                <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-red-500" />
+                <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-yellow-500" />
+                <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-green-500" />
               </div>
-              <span className="text-gray-400 text-sm ml-4 font-mono">
+              <span className="text-gray-400 text-xs md:text-sm ml-2 md:ml-4 font-mono">
                 stats.sh
               </span>
             </div>
 
             {/* Terminal Content */}
-            <div className="p-6 font-mono text-sm">
-              <div className="grid md:grid-cols-3 gap-8">
+            <div className="p-4 md:p-6 font-mono text-xs md:text-sm">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
                 <div>
                   <span className="text-green-400">$</span>{" "}
                   <span className="text-gray-400">experience --years</span>
-                  <div className="mt-2 text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400">
-                    4<span className="text-2xl text-gray-500">+</span>
+                  <div className="mt-2 text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400">
+                    4
+                    <span className="text-xl md:text-2xl text-gray-500">+</span>
                   </div>
-                  <div className="text-gray-500 mt-1">Years of Experience</div>
+                  <div className="text-gray-500 mt-1 text-xs md:text-sm">
+                    Years of Experience
+                  </div>
                 </div>
 
                 <div>
                   <span className="text-green-400">$</span>{" "}
                   <span className="text-gray-400">projects --count</span>
-                  <div className="mt-2 text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
+                  <div className="mt-2 text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
                     4
                   </div>
-                  <div className="text-gray-500 mt-1">Major Projects</div>
+                  <div className="text-gray-500 mt-1 text-xs md:text-sm">
+                    Major Projects
+                  </div>
                 </div>
 
                 <div>
                   <span className="text-green-400">$</span>{" "}
                   <span className="text-gray-400">tech-stack --size</span>
-                  <div className="mt-2 text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-red-400">
-                    15<span className="text-2xl text-gray-500">+</span>
+                  <div className="mt-2 text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-red-400">
+                    15
+                    <span className="text-xl md:text-2xl text-gray-500">+</span>
                   </div>
-                  <div className="text-gray-500 mt-1">Technologies</div>
+                  <div className="text-gray-500 mt-1 text-xs md:text-sm">
+                    Technologies
+                  </div>
                 </div>
               </div>
             </div>
@@ -151,43 +161,42 @@ export default function Home() {
       </section>
 
       {/* Skills Section - Card Grid */}
-      <section className="py-32 relative">
+      <section className="py-16 md:py-32 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-600/5 to-transparent" />
 
         <div className="container mx-auto px-4 relative">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-3 md:mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
               Tech Arsenal
             </h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            <p className="text-gray-400 text-sm md:text-lg max-w-2xl mx-auto px-4">
               Tools and technologies I use to bring ideas to life
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-7xl mx-auto">
             {skills.map((skill, index) => (
               <div
                 key={skill.category}
-                className="group relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-blue-500/50 transition-all hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20"
-                style={{ animationDelay: `${index * 100}ms` }}
+                className="group relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm rounded-xl p-5 md:p-6 border border-white/10 hover:border-blue-500/50 transition-all hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20"
               >
                 {/* Icon/Emoji */}
-                <div className="text-4xl mb-4">
+                <div className="text-3xl md:text-4xl mb-3 md:mb-4">
                   {index === 0 && "⚙️"}
                   {index === 1 && "🎨"}
                   {index === 2 && "☁️"}
                   {index === 3 && "📱"}
                 </div>
 
-                <h3 className="text-xl font-bold mb-4 text-blue-400 group-hover:text-blue-300 transition-colors">
+                <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4 text-blue-400 group-hover:text-blue-300 transition-colors">
                   {skill.category}
                 </h3>
 
-                <ul className="space-y-2">
+                <ul className="space-y-1.5 md:space-y-2">
                   {skill.items.map((item) => (
                     <li
                       key={item}
-                      className="text-gray-400 flex items-center group-hover:text-gray-300 transition-colors"
+                      className="text-gray-400 flex items-center group-hover:text-gray-300 transition-colors text-sm md:text-base"
                     >
                       <span className="text-blue-500 mr-2 text-xs">▹</span>
                       {item}
@@ -204,46 +213,48 @@ export default function Home() {
       </section>
 
       {/* Experience Timeline */}
-      <section className="py-32 bg-black/40">
+      <section className="py-16 md:py-32 bg-black/40">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-3 md:mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
               Journey
             </h2>
-            <p className="text-gray-400 text-lg">
+            <p className="text-gray-400 text-sm md:text-lg">
               My professional path in tech
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto space-y-6">
+          <div className="max-w-4xl mx-auto space-y-4 md:space-y-6">
             {experience.map((exp, index) => (
               <div
                 key={index}
-                className="group relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm rounded-xl p-8 border border-white/10 hover:border-purple-500/50 transition-all hover:scale-[1.02] hover:shadow-2xl hover:shadow-purple-500/20"
+                className="group relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm rounded-xl p-5 md:p-8 border border-white/10 hover:border-purple-500/50 transition-all hover:scale-[1.02] hover:shadow-2xl hover:shadow-purple-500/20"
               >
                 {/* Timeline Dot */}
-                <div className="absolute -left-3 top-10 w-6 h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full border-4 border-[#0a0a0a] group-hover:scale-125 transition-transform" />
+                <div className="absolute -left-2 md:-left-3 top-8 md:top-10 w-4 h-4 md:w-6 md:h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full border-2 md:border-4 border-[#0a0a0a] group-hover:scale-125 transition-transform" />
 
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                <div className="flex flex-col gap-3 md:gap-0 md:flex-row md:items-start md:justify-between mb-3 md:mb-4">
                   <div>
-                    <h3 className="text-2xl font-bold text-white group-hover:text-purple-300 transition-colors">
+                    <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-purple-300 transition-colors">
                       {exp.position}
                     </h3>
-                    <p className="text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
+                    <p className="text-base md:text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
                       {exp.company}
                     </p>
-                    <p className="text-gray-500 text-sm">{exp.location}</p>
+                    <p className="text-gray-500 text-xs md:text-sm">
+                      {exp.location}
+                    </p>
                   </div>
-                  <div className="mt-2 md:mt-0 md:text-right">
-                    <span className="inline-block px-4 py-2 bg-purple-500/10 border border-purple-500/20 rounded-lg text-purple-300 text-sm font-mono">
+                  <div className="md:text-right">
+                    <span className="inline-block px-3 md:px-4 py-1.5 md:py-2 bg-purple-500/10 border border-purple-500/20 rounded-lg text-purple-300 text-xs md:text-sm font-mono">
                       {exp.period}
                     </span>
                   </div>
                 </div>
 
                 {exp.projects.length > 0 && (
-                  <div className="mt-4">
-                    <p className="text-xs text-gray-500 mb-3 font-mono">
+                  <div className="mt-3 md:mt-4">
+                    <p className="text-xs text-gray-500 mb-2 md:mb-3 font-mono">
                       // Key Projects
                     </p>
                     <div className="flex flex-wrap gap-2">
@@ -251,7 +262,7 @@ export default function Home() {
                         <Link
                           key={project}
                           href={`/projects#${project}`}
-                          className="px-4 py-2 bg-blue-500/10 border border-blue-500/20 text-blue-300 rounded-lg text-sm hover:bg-blue-500/20 hover:border-blue-400/50 transition-all font-mono"
+                          className="px-3 md:px-4 py-1.5 md:py-2 bg-blue-500/10 border border-blue-500/20 text-blue-300 rounded-lg text-xs md:text-sm hover:bg-blue-500/20 hover:border-blue-400/50 transition-all font-mono"
                         >
                           {project}
                         </Link>
@@ -266,10 +277,10 @@ export default function Home() {
       </section>
 
       {/* CTA Section with Gradient */}
-      <section className="relative py-32 overflow-hidden">
+      <section className="relative py-16 md:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-pink-600/20" />
         <div
-          className="absolute inset-0"
+          className="absolute inset-0 opacity-30"
           style={{
             backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0)`,
             backgroundSize: "40px 40px",
@@ -277,18 +288,18 @@ export default function Home() {
         />
 
         <div className="container mx-auto px-4 text-center relative z-10">
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 px-4">
             Let's Build Something Epic
           </h2>
-          <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
+          <p className="text-base md:text-xl text-gray-300 mb-8 md:mb-12 max-w-2xl mx-auto px-4">
             Got a project in mind? I'm always open to discussing new
             opportunities and innovative ideas.
           </p>
 
-          <div className="flex gap-4 justify-center flex-wrap">
+          <div className="flex gap-3 md:gap-4 justify-center flex-wrap px-4">
             <Link
               href="/contact"
-              className="group relative px-10 py-5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg overflow-hidden transition-all hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/50 font-semibold text-lg"
+              className="group relative px-8 py-4 md:px-10 md:py-5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg overflow-hidden transition-all hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/50 font-semibold text-base md:text-lg"
             >
               <span className="relative z-10 flex items-center gap-2">
                 Start a Conversation
@@ -303,29 +314,13 @@ export default function Home() {
               href={personalInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-10 py-5 border-2 border-purple-500/50 rounded-lg hover:bg-purple-500/10 hover:border-purple-400 transition-all hover:scale-105 backdrop-blur-sm font-semibold text-lg"
+              className="px-8 py-4 md:px-10 md:py-5 border-2 border-purple-500/50 rounded-lg hover:bg-purple-500/10 hover:border-purple-400 transition-all hover:scale-105 backdrop-blur-sm font-semibold text-base md:text-lg"
             >
-              Connect on LinkedIn
+              LinkedIn
             </a>
           </div>
         </div>
       </section>
-
-      <style jsx>{`
-        @keyframes gradient {
-          0%,
-          100% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-        }
-        .animate-gradient {
-          background-size: 200% 200%;
-          animation: gradient 3s ease infinite;
-        }
-      `}</style>
     </main>
   );
 }
